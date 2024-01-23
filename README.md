@@ -48,7 +48,44 @@ Open Power BI and select Get Data Icon and select text/CSV option.
 Like with Customer table. Once you have the data in the Query editor. Review the data quality.
 The project requirements was to make the weights colum into kg and split the numerical number and text into two columns.
 With this in mind theafter reviewing this column with data is 80 x 25g, 12ml,25kg,28g,16oz. 
-With this in mind I filter the weight column to look for all rows containing "kg" Then save as product step 1.
+With this in mind I did the following steps.
+ 1. filter the weight column to look for all rows containing "kg"
+ 2. Rename the table as Product 1
+ 3. Split Weights Column by deliminator (use 'k') As the deliminator
+ 4. Replace the second Weights column from g to kg/ Rename column **UNITS**
+ 5. Change first split column data type to decimal and Rename **Weights**
+ 6. Select Apply and Close on home tab
+Then go to get data and repeat process but 
+ B1. Filter all rows containing "g" and Not containing "X" and "k"
+ B2. Rename the Table Product 2
+ B3. Split Weights Column by deliminator (use 'g') As the deliminator
+ B4. Change data type of numerical colum to decimal
+ B5. Under Columns menu select new column and select numerical Weights column and divide by 1000 (Converting g into kg)
+ B6. Remove original two split columns
+ B7. Add a new Column called "Units" and enter = "kg"
+ B8. Apply and Close
+Repeat process B1 to B8 to capture weights columns with ml
+With the excpt calling table Product 3 and spliting the weight column using "m" as the deliminator
+and convert to a new column into kg
+Do the same for weight with "oz" but rename the table Product 4.
+For weights columns containing 8 x 20g repeat the same process except split the weight column twice and labell table Product 5
+First split the column by 'X'. This will give 3 columns. The last column Split again by using Deliminator "g"
+Add a new column called Weights Containing a calculation (the first split Column multiply by the numerical (2nd Split) divided by 1000 (converting into ky
+Remove all split columns and add new column labelled units with value "kg"
+Apply and Close
+**Final step**
+Select product 1 and select Append Query.3 or more Tables option.
+Select all product tables 1 to 5 and select OK
+(Please note all tables should be contain the same amount of columns and the retrospective columns are the same data type.
+![image](https://github.com/c2995509/data-analytics-power-bi-report732/assets/2935215/9d51021a-a7dd-4d71-9b6b-c65e8e424beb)
+Rename the new Query as Product_lookup.
+Applied steps to clean columns headings and under home menu select coumns icon and select those columns you want to keep.
+Apply and Close
+Open the table properties and enter complete as below (similar to Orders) The only difference enter the unique column in the key Columnns box
+![image](https://github.com/c2995509/data-analytics-power-bi-report732/assets/2935215/869f9bbd-92ee-4492-b606-84d611a0bfd9)
+
+
+
 
 
 
