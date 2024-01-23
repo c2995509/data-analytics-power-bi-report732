@@ -42,4 +42,7 @@ In the editor Que/sowindow do the following steps
 8. Rename all query steps taken to somethink more meaningful description
    ![image](https://github.com/c2995509/data-analytics-power-bi-report732/assets/2935215/4cd41545-162e-436b-83f4-3909c8785817)
 9. on the home menu select Close & Apply. This will then save your query
-10. 
+10. The Structural relationship screen will appear showing the query table. Fill in the properties with relevant details.
+    ![image](https://github.com/c2995509/data-analytics-power-bi-report732/assets/2935215/7acae41d-f1f1-4f7e-8519-4918c2359ee9)
+    As this table is classified as main table unqiue column is required, therefore level Key Column blank.
+
