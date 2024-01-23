@@ -11,9 +11,6 @@ The following data tables are required to be loaded into Power BI
 4. Stores Table
 5. Calendar Table
 #### Installing Customer Table
-
-#### Installing Product List
-
 #### Order Table
 The orders table is stored on the Azure SQL Database. The process of transfer the data from Azure to Power Bi is as follows:
 Create a new Power Bi File and in this instance we called it OrderBi. The file extension is .pbix
@@ -45,4 +42,9 @@ In the editor Que/sowindow do the following steps
 10. The Structural relationship screen will appear showing the query table. Fill in the properties with relevant details.
     ![image](https://github.com/c2995509/data-analytics-power-bi-report732/assets/2935215/7acae41d-f1f1-4f7e-8519-4918c2359ee9)
     As this table is classified as main table unqiue column is required, therefore level Key Column blank.
+#### Installing Product List
+The PRoduct table is supplied by AI Core training Website. Select file *csv) and download and save to local drive.
+Open Power BI and select Get Data Icon and select text/CSV option.
+Like with Customer table 
+
 
