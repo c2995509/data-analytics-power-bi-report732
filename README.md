@@ -45,6 +45,10 @@ In the editor Que/sowindow do the following steps
 #### Installing Product List
 The PRoduct table is supplied by AI Core training Website. Select file *csv) and download and save to local drive.
 Open Power BI and select Get Data Icon and select text/CSV option.
-Like with Customer table 
+Like with Customer table. Once you have the data in the Query editor. Review the data quality.
+The project requirements was to make the weights colum into kg and split the numerical number and text into two columns.
+With this in mind theafter reviewing this column with data is 80 x 25g, 12ml,25kg,28g,16oz. 
+With this in mind I filter the weight column to look for all rows containing "kg" Then save as product step 1.
+
 
 
