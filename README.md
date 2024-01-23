@@ -21,11 +21,25 @@ When the new file has been created. Select icon labelled Get Data under the Home
 A list will appear, go to the bottom of the list and select more, A full list of software packages will appear where Power Bi can work with.
 Seelect The Azure option. Then a further sub list will appear and highlight Azure SQL Server. Click on Connect
 A log in box will appear and input the  following
- - Server (This is asking for the name of the Cloud Server)
- - Database (Leave this blank.
- - import or direct (Select Import)
+ - server_name = my-server-maya.database.windows.net
+ - database_name = Leave Blank
+ - username = maya
+ - password = AiCore127!
+import or direct (Select Import)
 The difference between import and direct is very simple. Import will extract the table to local machine and is stored within PowerBI program. Where as Direct the data is kept
 on the cloud within the Azure Databas and all queyies will pull all relevant data from this, But no data is stored locally.
+Highlight Orders_db, And then Select Connect (bottom left)
 Once you have the data, you will have too option either load or transform. (It is adviseable to always select transform, mainly because of data quality issues)
 Select transform, and a query editor windows will appear with the data table.
-
+In the editor Que/sowindow do the following steps
+1. Remove the card column
+2. Split Order DateTime column into two columns (Date & Time) (Using the split by delimitinator function)
+3. Change data type of split columns
+4. Rename split columns
+5. Split Shipping Date Column into two Columns (Date & Time) (Using the split by delimitinator function)
+6 Change Date Type of shipping Date & Time Columns
+7. Rename Shipping Data & Time columns accordingly and all other columns
+8. Rename all query steps taken to somethink more meaningful description
+   ![image](https://github.com/c2995509/data-analytics-power-bi-report732/assets/2935215/4cd41545-162e-436b-83f4-3909c8785817)
+9. on the home menu select Close & Apply. This will then save your query
+10. 
