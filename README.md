@@ -86,6 +86,52 @@ Open the table properties and enter complete as below (similar to Orders) The on
 ![image](https://github.com/c2995509/data-analytics-power-bi-report732/assets/2935215/869f9bbd-92ee-4492-b606-84d611a0bfd9)
 
 #### Installing Customer Table
+The Customer list is supplied in a zip file. Download and unzip the file onto local drive folder.
+Select Get Data Icon from the main menu and select the folder option, and select the unzipped folder
+The query editor screen will display a table containing all the files within the folder, The very first column, the column header a symbol is shown, select the symbol
+![image](https://github.com/c2995509/data-analytics-power-bi-report732/assets/2935215/da65c91d-ebfc-45ff-b311-cc55e6f4f688)
+This will open up and merge all files listed in the table into one.
+Select the transform option, and select the relevant query options to cleanse and sort the merged table inot a usable format.
+Rename the merged table query editor as Customer_lookup, illustrated below
+![image](https://github.com/c2995509/data-analytics-power-bi-report732/assets/2935215/13218f2d-6919-41e4-bd38-b5650d1a073d)
+Once all the necessary changes have occured select Apply and close option from the home tab
+#### Installing Stores Table
+The Stores data table is stored on Azure Blob. To retrieve the file select the relevnt option list in the Get Data Icon. And follow the relevant steps that appear.
+Once the query editor in open make the relevant changes using the tools available in the query editor until the data is transformed into a usuable format.
+Change the name of the table to Stores_lookup
+Then select Apply and close on the home tab.
+Just like all other tables in the relationship window update the tables properties with the necessary information explaining what is in the table and any unique fields.
+By doing this when you and building the schema all the tables will automatically join together with under one to many relationship. 
+
+Save file and upload to github 
+The next stage is to create a Date table, for time intelligence calculations e.g Revenue YTD, Previous Year's revenue etc.
+The date table inthis instance is created slightly differently to the rest, and is not done in the Query editor mode, but in the table view mode.
+Please note as for this project we are dealing with static dates, otherwise a rolling calendar would be required which is created in the Quey Editor wmode.
+To create a date table in the table view mode, in the home tab select the new table icon.
+A new table is opened, 
+![image](https://github.com/c2995509/data-analytics-power-bi-report732/assets/2935215/66604084-fc3f-442e-a748-3b4b6fea71a9)
+In the formula box indicated above, enter the following DAX code "Calendar_lookup = CALENDAR(MIN(Orders[Order Date]), MAX(Orders[Shipping Date]))
+Select the option mark table as date table, in the Table tools menu, A continous column containing all thedates listed in the orders table will apeear, Cange the data type to Date,
+and reformat the date format to dd/mm/yyyy. 
+There is the option to create a full date table using the advance editor function, but in this instance the date table was expanded manually column by column.
+To create a new columns select new column option in the table menu enter the following,
+1. WeekDay = FORMAT([Dates],"dddd")
+2. Month No = MONTH(Calendar_lookup[Dates])
+3. Month Name = FORMAT([Dates],"mmm")
+4. Quarter = "Qtr " & QUARTER([Dates])
+5. Year = YEAR([Dates])
+6. Day of Week = WEEKDAY([Dates],2)
+7. Start of Week = [Dates]+1-WEEKDAY([Dates]-1)
+8. Start of Month = STARTOFMONTH(Calendar_lookup[Dates])
+9. Start of Quarter = STARTOFQUARTER(Calendar_lookup[Dates])
+10. Start of Year = STARTOFYEAR(Calendar_lookup[Dates])
+Once the Date table has been expanded to the required level, save and reopen the model view window.
+Connect the date table to the orders table on Dates to Order Dates & Shipping Dates) by simply draging the Order date & shipping Date over to the Date table. (creating a many to one relationship ( i.e Many order dates and a singular Date in the date table . The connection from Dates and shipping dates will be a dotted line.
+
+##Save and back up Power Bi File
+**Start Visualisation**
+The first call in starting the visualisation is create a new table called Measures. The reason for this is that a lot of calculations will be created during the construction of the visuals and by having a table called measures, it makes the whole structure more tidy and easier to work with plus keeping all the Dax calculations in one place.
+
 
 
 
