@@ -131,6 +131,26 @@ Connect the date table to the orders table on Dates to Order Dates & Shipping Da
 ##Save and back up Power Bi File
 **Start Visualisation**
 The first call in starting the visualisation is create a new table called Measures. The reason for this is that a lot of calculations will be created during the construction of the visuals and by having a table called measures, it makes the whole structure more tidy and easier to work with plus keeping all the Dax calculations in one place.
+**Creating Report Pages**
+The are 4 report pages to create (Executive, Customer, Product and Stores.
+on the bottom of the Report view window page 1 tab will appear, Rename this Executive, then select the icon next to it (Green + symbol) press it 3 times and pages 2,3,4 will appear and rename them accordingly.
+Select the colour scheme you require.
+Select the executive Page and Insert a navigation pane. To do this insert a rectangle shape and drag and resize accordingly and place it on the left hand side of the screen, and change the colour.
+Copy and paste shape onto the other pages nd place it on the left hand side of the view screen.
+**Build a visualisation on the Customer Page**
+The following visualisation to be created on the Customer Page
+1. Headline Visual Cards x5
+   TO create a visual Card, First select a rectangluar shape, and alter in to the required size and shape. (Use the Format menu to change colour and certain elements)
+   Then select the singular Card visual option and drag over the rectangle, and in the format menu bring forward the card so it appears above the rectangle, and align it accordingly to the rectangle.
+   Select both the card and rectangle and right click the mouse and select group option, Copy and passte x5,
+   Arrange all Cards with rectangle shape accordingly along the top of the Customer page.
+   NExt stage is to create the relevant measure for each card
+3. Line Chart
+4. Bar Chart
+5. Data Table
+6. Doonut
+7. SLider
+8. 
 
 
 
