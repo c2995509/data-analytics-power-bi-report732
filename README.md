@@ -144,7 +144,16 @@ The following visualisation to be created on the Customer Page
    Then select the singular Card visual option and drag over the rectangle, and in the format menu bring forward the card so it appears above the rectangle, and align it accordingly to the rectangle.
    Select both the card and rectangle and right click the mouse and select group option, Copy and passte x5,
    Arrange all Cards with rectangle shape accordingly along the top of the Customer page.
-   NExt stage is to create the relevant measure for each card
+   Next stage is to drag the relevant measure and place it in the values box as illustrated below
+   ![image](https://github.com/c2995509/data-analytics-power-bi-report732/assets/2935215/36303af7-f911-4f20-9f46-af5a393e18db)
+   Repeat the same process for all 5 visual cards.
+   The following dax measures are being used
+   a) Total Customers = DISTINCTCOUNT(Orders[User ID])
+   b) Revenue per Customer = [Total Revenue]/[Total Customers]
+   c) Total Revenue = SUMX(Orders,Orders[Product Quantity]*RELATED(Product_lookup[Sales Price]))
+   d) Top Customer = MAXX(TOPN(1,Customers_lookup,[Revenue per Customer],DESC),Customers_lookup[Full Name])
+   e) Top Customer Revenue = MAXX(TOPN(1,Customers_lookup,[Revenue per Customer],DESC),[Total Revenue])
+   As you can see the benefit of Dax formulas is that you can incorporate other Dax forumlas into other Dax Formulas
 3. Line Chart
 4. Bar Chart
 5. Data Table
