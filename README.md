@@ -155,11 +155,16 @@ The following visualisation to be created on the Customer Page
    e) Top Customer Revenue = MAXX(TOPN(1,Customers_lookup,[Revenue per Customer],DESC),[Total Revenue])
    As you can see the benefit of Dax formulas is that you can incorporate other Dax forumlas into other Dax Formulas
 3. Line Chart
-4. Bar Chart
-5. Data Table
-6. Doonut
-7. SLider
-8. 
+   Build a line Chart visualisation with trending line.
+   Seelectthe visual line chart Icon and place in required position in the report window
+   Select the correct measure and the correct data field by means of draging from the table list into repective visual blank boxesOpen the format pane of the visual and change the relevant section
+   In the frmat select the trending line option
+   
+5. Bar Chart
+6. Data Table
+7. Doonut
+8. SLider
+9. 
 
 
 
