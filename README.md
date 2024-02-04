@@ -128,7 +128,7 @@ To create a new columns select new column option in the table menu enter the fol
 Once the Date table has been expanded to the required level, save and reopen the model view window.
 Connect the date table to the orders table on Dates to Order Dates & Shipping Dates) by simply draging the Order date & shipping Date over to the Date table. (creating a many to one relationship ( i.e Many order dates and a singular Date in the date table . The connection from Dates and shipping dates will be a dotted line.
 
-##Save and back up Power Bi File
+Save and back up Power Bi File
 #### **Start Visualisation**
 The first call in starting the visualisation is create a new table called Measures. The reason for this is that a lot of calculations will be created during the construction of the visuals and by having a table called measures, it makes the whole structure more tidy and easier to work with plus keeping all the Dax calculations in one place.
 **Creating Report Pages**
@@ -169,11 +169,26 @@ The following visualisation to be created on the Customer Page
    The first step is to create therequired measure calculation
    Total Customers = DISTINCTCOUNT(Orders[User ID]) This method using the distinct function will count all customers just once and will ignore any further orders made by existing customer.
    After the measure has been created, select the relevant icon from the visual options, place resize accordingly. Then drag the Total Customers into the Y axis box, making sure it does not sum the total
-   again, Then open the product table and drag the category field into the the X axis box. Then open the format element of the visual panel and make relevantadjustment to the graph, For example give the graph a title, change the font size and colour.
+   again, Then open the product table and drag the category field into the the X axis box. Then open the format element of the visual panel and make relevantadjustment to the graph, For example give the graph a title, 
+   change the font size and colour.
+   ![image](https://github.com/c2995509/data-analytics-power-bi-report732/assets/2935215/b11f2357-9e39-44b6-ada7-925c7c02d61f)
 7. Data Table
-8. Doonut
-9. SLider
-10. 
+   Create a data table showing the top 20 customers.
+   Asbefore check to see if all the measures have been created previously, and if necessary createnew measures
+   The measures which will be used are
+   a) Total Orders = COUNTX(Orders,Orders[Product Quantity])
+   b) Total Revenue = SUMX(Orders,Orders[Product Quantity]*RELATED(Product_lookup[Sales Price]))
+   c) Total Customers = DISTINCTCOUNT(Orders[User ID])
+   d) Top 20 Customers = MAXX(TOPN(20,Customers_lookup,[Revenue per Customer],DESC),Customers_lookup[Full Name])
+   e) Revenue per Customer = [Total Revenue]/[Total Customers]
+   Select the visual item for data tables and dragit across into the report windows,and drag the three measures mentioned above and the Customer Full Name intocolumns visual box (illustrated in diagram.
+   TO filter the top 2o customer, the filter pane is also required making sure the Full name is listed at the top, select top n option and select the coreesponding option and enter the number 20 in relevant box, After 
+   this you be needing to informed it would the top 20 customer is being baised on, for this drag another measure Revenue per customer
+   ![image](https://github.com/c2995509/data-analytics-power-bi-report732/assets/2935215/bad8ce81-795d-41a5-879e-392a14a5152e)
+9. Doonut
+    
+11. SLider
+12. 
 
 
 
