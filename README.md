@@ -129,7 +129,7 @@ Once the Date table has been expanded to the required level, save and reopen the
 Connect the date table to the orders table on Dates to Order Dates & Shipping Dates) by simply draging the Order date & shipping Date over to the Date table. (creating a many to one relationship ( i.e Many order dates and a singular Date in the date table . The connection from Dates and shipping dates will be a dotted line.
 
 ##Save and back up Power Bi File
-**Start Visualisation**
+#### **Start Visualisation**
 The first call in starting the visualisation is create a new table called Measures. The reason for this is that a lot of calculations will be created during the construction of the visuals and by having a table called measures, it makes the whole structure more tidy and easier to work with plus keeping all the Dax calculations in one place.
 **Creating Report Pages**
 The are 4 report pages to create (Executive, Customer, Product and Stores.
@@ -159,15 +159,21 @@ The following visualisation to be created on the Customer Page
    Seelectthe visual line chart Icon and place in required position in the report window
    Select the correct measure and the correct data field by means of draging from the table list into repective visual blank boxesOpen the format pane of the visual and change the relevant section
    ![image](https://github.com/c2995509/data-analytics-power-bi-report732/assets/2935215/9900b770-d5fc-4d92-9bdb-d399656c3401)
-   Once line graph has been position and relevant details have been added, the next step is to format various element off the graph by selecting the format option and modify the relevant options listed in the format, like changing text size, text colour, adding a title. etc
+   Once line graph has been position and relevant details have been added, the next step is to format various element off the graph by selecting the format option and modify the relevant options listed in the format,     
+   like changing text size, text colour, adding a title. etc
    The final step is to create a trend line, you do this by selecting the further analyse tool and switch on the trend line and switching on the forecast and setting to the requirements.
    ![image](https://github.com/c2995509/data-analytics-power-bi-report732/assets/2935215/a74b5f29-83d0-49c1-ba73-d07e6ccd301f)
    Save the file once line graph is completed
 5. Bar Chart
-6. Data Table
-7. Doonut
-8. SLider
-9. 
+   Build a bar chart to show Number of Customers by Category
+   The first step is to create therequired measure calculation
+   Total Customers = DISTINCTCOUNT(Orders[User ID]) This method using the distinct function will count all customers just once and will ignore any further orders made by existing customer.
+   After the measure has been created, select the relevant icon from the visual options, place resize accordingly. Then drag the Total Customers into the Y axis box, making sure it does not sum the total
+   again, Then open the product table and drag the category field into the the X axis box. Then open the format element of the visual panel and make relevantadjustment to the graph, For example give the graph a title, change the font size and colour.
+7. Data Table
+8. Doonut
+9. SLider
+10. 
 
 
 
