@@ -158,8 +158,11 @@ The following visualisation to be created on the Customer Page
    Build a line Chart visualisation with trending line.
    Seelectthe visual line chart Icon and place in required position in the report window
    Select the correct measure and the correct data field by means of draging from the table list into repective visual blank boxesOpen the format pane of the visual and change the relevant section
-   In the frmat select the trending line option
-   
+   ![image](https://github.com/c2995509/data-analytics-power-bi-report732/assets/2935215/9900b770-d5fc-4d92-9bdb-d399656c3401)
+   Once line graph has been position and relevant details have been added, the next step is to format various element off the graph by selecting the format option and modify the relevant options listed in the format, like changing text size, text colour, adding a title. etc
+   The final step is to create a trend line, you do this by selecting the further analyse tool and switch on the trend line and switching on the forecast and setting to the requirements.
+   ![image](https://github.com/c2995509/data-analytics-power-bi-report732/assets/2935215/a74b5f29-83d0-49c1-ba73-d07e6ccd301f)
+   Save the file once line graph is completed
 5. Bar Chart
 6. Data Table
 7. Doonut
