@@ -17,12 +17,8 @@ Create a new Power Bi File and in this instance we called it OrderBi. The file e
 When the new file has been created. Select icon labelled Get Data under the Home menu.
 A list will appear, go to the bottom of the list and select more, A full list of software packages will appear where Power Bi can work with.
 Seelect The Azure option. Then a further sub list will appear and highlight Azure SQL Server. Click on Connect
-A log in box will appear and input the  following
- - server_name = my-server-maya.database.windows.net
- - database_name = Leave Blank
- - username = maya
- - password = AiCore127!
-import or direct (Select Import)
+and enter the required details, 
+Then select Import option
 The difference between import and direct is very simple. Import will extract the table to local machine and is stored within PowerBI program. Where as Direct the data is kept
 on the cloud within the Azure Databas and all queyies will pull all relevant data from this, But no data is stored locally.
 Highlight Orders_db, And then Select Connect (bottom left)
@@ -114,17 +110,7 @@ In the formula box indicated above, enter the following DAX code "Calendar_looku
 Select the option mark table as date table, in the Table tools menu, A continous column containing all thedates listed in the orders table will apeear, Cange the data type to Date,
 and reformat the date format to dd/mm/yyyy. 
 There is the option to create a full date table using the advance editor function, but in this instance the date table was expanded manually column by column.
-To create a new columns select new column option in the table menu enter the following,
-1. WeekDay = FORMAT([Dates],"dddd")
-2. Month No = MONTH(Calendar_lookup[Dates])
-3. Month Name = FORMAT([Dates],"mmm")
-4. Quarter = "Qtr " & QUARTER([Dates])
-5. Year = YEAR([Dates])
-6. Day of Week = WEEKDAY([Dates],2)
-7. Start of Week = [Dates]+1-WEEKDAY([Dates]-1)
-8. Start of Month = STARTOFMONTH(Calendar_lookup[Dates])
-9. Start of Quarter = STARTOFQUARTER(Calendar_lookup[Dates])
-10. Start of Year = STARTOFYEAR(Calendar_lookup[Dates])
+Expand the calendar table to meet requirements
 Once the Date table has been expanded to the required level, save and reopen the model view window.
 Connect the date table to the orders table on Dates to Order Dates & Shipping Dates) by simply draging the Order date & shipping Date over to the Date table. (creating a many to one relationship ( i.e Many order dates and a singular Date in the date table . The connection from Dates and shipping dates will be a dotted line.
 
@@ -156,7 +142,7 @@ The following visualisation to be created on the Customer Page
    As you can see the benefit of Dax formulas is that you can incorporate other Dax forumlas into other Dax Formulas
 3. Line Chart
    Build a line Chart visualisation with trending line.
-   Seelectthe visual line chart Icon and place in required position in the report window
+   Select the visual line chart Icon and place in required position in the report window
    Select the correct measure and the correct data field by means of draging from the table list into repective visual blank boxesOpen the format pane of the visual and change the relevant section
    ![image](https://github.com/c2995509/data-analytics-power-bi-report732/assets/2935215/9900b770-d5fc-4d92-9bdb-d399656c3401)
    Once line graph has been position and relevant details have been added, the next step is to format various element off the graph by selecting the format option and modify the relevant options listed in the format,     
@@ -186,9 +172,10 @@ The following visualisation to be created on the Customer Page
    this you be needing to informed it would the top 20 customer is being baised on, for this drag another measure Revenue per customer
    ![image](https://github.com/c2995509/data-analytics-power-bi-report732/assets/2935215/bad8ce81-795d-41a5-879e-392a14a5152e)
 9. Doonut
-    
+   Select the relevant visual icon, drag and resize to meet reequirements. In the relevant boxes drag and drop the required measures. Reformat to make it visually effective
 11. SLider
-12. 
+    A slider is a mechanism that the audience of the visualisation can interact with and apply specific designated filters to various graphs, etc. In the instance the Year from the calendar has been assigned to the slider
+ After all the visualisation pages have been built all is left is general tidy up, for example set control of what visualisation filtering can effect what 
 
 
 
