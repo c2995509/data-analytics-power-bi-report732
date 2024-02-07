@@ -134,11 +134,11 @@ The following visualisation to be created on the Customer Page
    ![image](https://github.com/c2995509/data-analytics-power-bi-report732/assets/2935215/36303af7-f911-4f20-9f46-af5a393e18db)
    Repeat the same process for all 5 visual cards.
    The following dax measures are being used
-   a) Total Customers = DISTINCTCOUNT(Orders[User ID])
-   b) Revenue per Customer = [Total Revenue]/[Total Customers]
-   c) Total Revenue = SUMX(Orders,Orders[Product Quantity]*RELATED(Product_lookup[Sales Price]))
-   d) Top Customer = MAXX(TOPN(1,Customers_lookup,[Revenue per Customer],DESC),Customers_lookup[Full Name])
-   e) Top Customer Revenue = MAXX(TOPN(1,Customers_lookup,[Revenue per Customer],DESC),[Total Revenue])
+''' Total Customers = DISTINCTCOUNT(Orders[User ID])
+''' Revenue per Customer = [Total Revenue]/[Total Customers]
+''' Total Revenue = SUMX(Orders,Orders[Product Quantity]*RELATED(Product_lookup[Sales Price]))
+''' Top Customer = MAXX(TOPN(1,Customers_lookup,[Revenue per Customer],DESC),Customers_lookup[Full Name])
+''' Top Customer Revenue = MAXX(TOPN(1,Customers_lookup,[Revenue per Customer],DESC),[Total Revenue])
    As you can see the benefit of Dax formulas is that you can incorporate other Dax forumlas into other Dax Formulas
 3. Line Chart
    Build a line Chart visualisation with trending line.
@@ -153,7 +153,7 @@ The following visualisation to be created on the Customer Page
 5. Bar Chart
    Build a bar chart to show Number of Customers by Category
    The first step is to create therequired measure calculation
-   Total Customers = DISTINCTCOUNT(Orders[User ID]) This method using the distinct function will count all customers just once and will ignore any further orders made by existing customer.
+   ''' Total Customers = DISTINCTCOUNT(Orders[User ID]) This method using the distinct function will count all customers just once and will ignore any further orders made by existing customer.
    After the measure has been created, select the relevant icon from the visual options, place resize accordingly. Then drag the Total Customers into the Y axis box, making sure it does not sum the total
    again, Then open the product table and drag the category field into the the X axis box. Then open the format element of the visual panel and make relevantadjustment to the graph, For example give the graph a title, 
    change the font size and colour.
@@ -162,7 +162,7 @@ The following visualisation to be created on the Customer Page
    Create a data table showing the top 20 customers.
    Asbefore check to see if all the measures have been created previously, and if necessary createnew measures
    The measures which will be used are
-   a) Total Orders = COUNTX(Orders,Orders[Product Quantity])
+''' Total Orders = COUNTX(Orders,Orders[Product Quantity])
    b) Total Revenue = SUMX(Orders,Orders[Product Quantity]*RELATED(Product_lookup[Sales Price]))
    c) Total Customers = DISTINCTCOUNT(Orders[User ID])
    d) Top 20 Customers = MAXX(TOPN(20,Customers_lookup,[Revenue per Customer],DESC),Customers_lookup[Full Name])
