@@ -1,16 +1,49 @@
-"store_type","country","month_name","monthly_revenue"
-"Local","Germany","Oct",1819861257
-"Local","Germany","Dec",1636896087
-"Local","Germany","Jul",1627938773
-"Local","Germany","Aug",1626599992
-"Local","Germany","Jan",1608198973
-"Local","Germany","Sep",1607014296
-"Local","Germany","Jun",1523489755
-"Local","Germany","May",1493511649
-"Local","Germany","Feb",1440148212
-"Local","Germany","Nov",1398906044
-"Local","Germany","Apr",1306592740
-"Local","Germany","Mar",1305923350
-"Super Store","Germany","Sep",544676903
-"Super Store","Germany","Nov",517058520
-"Super Store","Germany","Oct",486907046
+"country","month_name","store_type","monthly_revenue"
+"Germany","Jul","Local",16184
+"Germany","Oct","Local",14577
+"Germany","Sep","Local",14045
+"Germany","Dec","Local",13784
+"Germany","Feb","Local",13314
+"Germany","May","Local",13271
+"Germany","Aug","Local",12995
+"Germany","Jan","Local",12824
+"Germany","Jun","Local",12504
+"Germany","Nov","Local",12086
+"Germany","Mar","Local",10549
+"Germany","Apr","Local",10389
+"Germany","Mar","Super Store",4791
+"Germany","Sep","Super Store",4476
+"Germany","Jan","Super Store",4371
+"Germany","Nov","Super Store",4080
+"Germany","Feb","Super Store",3941
+"Germany","Aug","Super Store",3606
+"Germany","Oct","Super Store",3575
+"Germany","Jun","Super Store",3196
+"Germany","Jul","Super Store",3065
+"Germany","May","Super Store",3030
+"Germany","Dec","Super Store",2921
+"Germany","May","Outlet",2846
+"Germany","Jul","Mall Kiosk",2827
+"Germany","May","Mall Kiosk",2606
+"Germany","Oct","Mall Kiosk",2498
+"Germany","Apr","Super Store",2486
+"Germany","Nov","Mall Kiosk",2451
+"Germany","Aug","Mall Kiosk",2295
+"Germany","Feb","Mall Kiosk",2040
+"Germany","Oct","Outlet",1872
+"Germany","Apr","Outlet",1802
+"Germany","Aug","Outlet",1679
+"Germany","Dec","Outlet",1575
+"Germany","Apr","Mall Kiosk",1488
+"Germany","Jun","Mall Kiosk",1481
+"Germany","Sep","Mall Kiosk",1410
+"Germany","Jan","Mall Kiosk",1375
+"Germany","Mar","Mall Kiosk",1263
+"Germany","Jul","Outlet",1199
+"Germany","Sep","Outlet",1068
+"Germany","Jun","Outlet",1036
+"Germany","Jan","Outlet",976
+"Germany","Nov","Outlet",889
+"Germany","Feb","Outlet",752
+"Germany","Mar","Outlet",652
+"Germany","Dec","Mall Kiosk",571
