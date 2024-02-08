@@ -134,11 +134,13 @@ The following visualisation to be created on the Customer Page
    ![image](https://github.com/c2995509/data-analytics-power-bi-report732/assets/2935215/36303af7-f911-4f20-9f46-af5a393e18db)
    Repeat the same process for all 5 visual cards.
    The following dax measures are being used
-''' Total Customers = DISTINCTCOUNT(Orders[User ID])
-''' Revenue per Customer = [Total Revenue]/[Total Customers]
-''' Total Revenue = SUMX(Orders,Orders[Product Quantity]*RELATED(Product_lookup[Sales Price]))
-''' Top Customer = MAXX(TOPN(1,Customers_lookup,[Revenue per Customer],DESC),Customers_lookup[Full Name])
-''' Top Customer Revenue = MAXX(TOPN(1,Customers_lookup,[Revenue per Customer],DESC),[Total Revenue])
+'''
+Total Customers = DISTINCTCOUNT(Orders[User ID])
+Revenue per Customer = [Total Revenue]/[Total Customers]
+Total Revenue = SUMX(Orders,Orders[Product Quantity]*RELATED(Product_lookup[Sales Price]))
+Top Customer = MAXX(TOPN(1,Customers_lookup,[Revenue per Customer],DESC),Customers_lookup[Full Name])
+Top Customer Revenue = MAXX(TOPN(1,Customers_lookup,[Revenue per Customer],DESC),[Total Revenue])
+'''
    As you can see the benefit of Dax formulas is that you can incorporate other Dax forumlas into other Dax Formulas
 3. Line Chart
    Build a line Chart visualisation with trending line.
@@ -153,7 +155,10 @@ The following visualisation to be created on the Customer Page
 5. Bar Chart
    Build a bar chart to show Number of Customers by Category
    The first step is to create therequired measure calculation
-   ''' Total Customers = DISTINCTCOUNT(Orders[User ID]) This method using the distinct function will count all customers just once and will ignore any further orders made by existing customer.
+'''
+Total Customers = DISTINCTCOUNT(Orders[User ID])
+'''
+This method using the distinct function will count all customers just once and will ignore any further orders made by existing customer.
    After the measure has been created, select the relevant icon from the visual options, place resize accordingly. Then drag the Total Customers into the Y axis box, making sure it does not sum the total
    again, Then open the product table and drag the category field into the the X axis box. Then open the format element of the visual panel and make relevantadjustment to the graph, For example give the graph a title, 
    change the font size and colour.
@@ -162,11 +167,13 @@ The following visualisation to be created on the Customer Page
    Create a data table showing the top 20 customers.
    Asbefore check to see if all the measures have been created previously, and if necessary createnew measures
    The measures which will be used are
-''' Total Orders = COUNTX(Orders,Orders[Product Quantity])
-   b) Total Revenue = SUMX(Orders,Orders[Product Quantity]*RELATED(Product_lookup[Sales Price]))
-   c) Total Customers = DISTINCTCOUNT(Orders[User ID])
-   d) Top 20 Customers = MAXX(TOPN(20,Customers_lookup,[Revenue per Customer],DESC),Customers_lookup[Full Name])
-   e) Revenue per Customer = [Total Revenue]/[Total Customers]
+'''
+Total Orders = COUNTX(Orders,Orders[Product Quantity])
+Total Revenue = SUMX(Orders,Orders[Product Quantity]*RELATED(Product_lookup[Sales Price]))
+Total Customers = DISTINCTCOUNT(Orders[User ID])
+Top 20 Customers = MAXX(TOPN(20,Customers_lookup,[Revenue per Customer],DESC),Customers_lookup[Full Name])
+Revenue per Customer = [Total Revenue]/[Total Customers]
+'''
    Select the visual item for data tables and dragit across into the report windows,and drag the three measures mentioned above and the Customer Full Name intocolumns visual box (illustrated in diagram.
    TO filter the top 2o customer, the filter pane is also required making sure the Full name is listed at the top, select top n option and select the coreesponding option and enter the number 20 in relevant box, After 
    this you be needing to informed it would the top 20 customer is being baised on, for this drag another measure Revenue per customer
@@ -176,8 +183,81 @@ The following visualisation to be created on the Customer Page
 11. SLider
     A slider is a mechanism that the audience of the visualisation can interact with and apply specific designated filters to various graphs, etc. In the instance the Year from the calendar has been assigned to the slider
  After all the visualisation pages have been built all is left is general tidy up, for example set control of what visualisation filtering can effect what 
+**Build a visualisation on the Executive Page**
+Simply repeat process but select slightly different visually, Taken into account the executive page nees to give a complete overhaul of all pages as a grand summary.
+In the intances showing performance elements like Revenue by Country, Revenue by store type and the most popular sold items.
+![image](https://github.com/c2995509/data-analytics-power-bi-report732/assets/2935215/0f871740-519b-4728-a9e9-6e025868a90b)
+**Product Visualisation**
+The product summary is purely based on products, category of  groups of products and profit per orders by category etc. Below is the visualisation highlighting the various elements. The only extra element is two slicers have been added, To access these slicers the user would be required to select the required icon on the left of the page.
+![image](https://github.com/c2995509/data-analytics-power-bi-report732/assets/2935215/fe437f69-73d9-4d88-b8c8-844d5926b672)
+**Stores Page**
+The stores page is simply a map of the would with values being geographical hierarchy and the bubble value being assigned the measure profit YTD.
+With a drill down page with performance of stores selected on the map via the drill down option and a top tip being added showing a gauge showing profit YTD for that selected store.
+The final finishing touches are assigning navigation buttons to assist the audience to navigation between pages and the interaction between the various visualisations on each page by selecting the visual, in the main menu selecting Format and the icon edit interaction. Then one all the other visuals 3 small icons will appear and just select on of those items, the circle item will stop the interaction with selected visualisation. Highlighted below circled in red.
+![image](https://github.com/c2995509/data-analytics-power-bi-report732/assets/2935215/0e6bcd84-80c3-4cd5-a924-8a095ae83b6f)
 
-
+****Data Analyses data with external partners****
+Sometimes it is necessary to send controlled data to external partners who will not have access to power Bi and almost certainly stop external partners from knowing certain elements of the organisation, Therefore it is sometime required to produce certain data tables with answers to certain questions. The type of question that may get asked are:
+How many staff are there in all of the UK stores?
+'''
+SELECT country,sum(staff_numbers) as Total_Staff_Numbers
+FROM dim_store
+WHERE country_code='GB'
+GROUP BY country;
+'''
+Which month in 2022 has had the highest revenue?
+'''
+SELECT D.month_name,ROUND(CAST(sum(O.product_quantity*P.sale_price) as BIGINT)) as Monthly_Revenue
+FROM orders as O JOIN dim_date as D ON O.order_date=D.date
+JOIN dim_product as P ON O.product_code=P.product_code
+WHERE D.year=2022 
+GROUP BY D.month_name
+ORDER BY Monthly_Revenue DESC
+'''
+Which German store type had the highest revenue for 2022?
+'''
+SELECT P.category,D.month_name,S.store_type,ROUND(CAST(sum(O.product_quantity*P.sale_price) as BIGINT)) as Monthly_Revenue
+FROM orders as O JOIN dim_date as D ON O.order_date=D.date
+JOIN dim_product as P ON O.product_code=P.product_code
+JOIN dim_store as S ON O.store_code=S.store_code
+WHERE D.year=2022 AND S.country='Germany'
+GROUP BY S.country,D.month_name,S.store_type
+ORDER BY Monthly_Revenue DESC
+'''
+Create a view where the rows are the store types and the columns are the total sales, percentage of total sales and the count of orders
+'''
+CREATE VIEW StoresSummary_Alan AS (
+with summary AS(
+SELECT ROUND(SUM(P.sale_price * O.product_quantity) ::numeric,2) AS total_sales,
+COUNT(O.order_date_uuid) AS count_orders,
+S.store_type as store_type
+FROM orders as O
+JOIN dim_product as P on P.product_code = O.product_code
+JOIN dim_store as S on S.store_code = O.store_code
+GROUP BY S.store_type)
+,
+grand_total_sales AS
+(SELECT
+SUM(summary.total_sales) AS grand_total_sales
+FROM summary)
+SELECT
+summary.store_type,
+summary.total_sales,
+summary.count_orders,
+ROUND((summary.total_sales/(SELECT grand_total_sales FROM grand_total_sales))*100::numeric,2) AS perc_sales
+FROM summary
+)
+'''
+Which product category generated the most profit for the "Wiltshire, UK" region in 2021?
+'''
+SELECT P.category,ROUND(CAST(sum(O.product_quantity*P.sale_price) as BIGINT)) as Category_Revenue
+FROM orders as O JOIN dim_date as D ON O.order_date=D.date
+JOIN dim_product as P ON O.product_code=P.product_code
+JOIN dim_store as S ON O.store_code=S.store_code
+WHERE D.year=2022 AND S.country_region = 'Wiltshire'
+GROUP BY P.category
+ORDER BY Category_Revenue DESC
+'''
 
 
 
